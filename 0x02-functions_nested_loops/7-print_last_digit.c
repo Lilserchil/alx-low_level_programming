@@ -5,7 +5,6 @@
   *
   *Return: last digit
   */
-
 int print_last_digit(int i)
 {
 	int last_digit;
