@@ -1,31 +1,49 @@
-#include <stdio.h>
 #include "main.h"
-/**
-  *print_to_98 - print values with 98 as the last value
-  *@n: integer values to begin at
-  *
-  */
-void print_to_98(int n)
-{
-	int i;
-	char m = ',', k = ' ';
 
-	for (i = n; i <= 98; i++)
+/**
+  *print_times_table - multiplication table
+  *@n: integer
+  */
+
+void print_times_table(int n)
+{
+	int x = 0, y, z;
+
+	if (n > 15 || n < 0)
+		return;
+	while (x <= n)
 	{
-		printf("%d", i);
-		if (i == 98)
-			continue;
-		printf("%c%c", m, k);
-	}
-	if (n > 98)
-	{
-		for (i = n; i >= 98; i--)
+		for (y = 0; y <= n; y++)
+		for (y = 0; y <= n; y++)
 		{
-			printf("%d", i);
-		if (i == 98)
-			continue;
-		printf("%c%c", m, k);
+			z = x * y;
+			if (z > 99)
+			{
+				_putchar(z / 100 + '0');
+				_putchar((z / 10 % 10) + '0');
+				_putchar(z % 10 + '0');
+			}
+			else if (z > 9)
+			{
+				_putchar(' ');
+				_putchar(z / 10 + '0');
+				_putchar(z % 10 + '0');
+			}
+			else if (y != 0)
+			{
+				_putchar(' ');
+				_putchar(' ');
+				_putchar(z + '0');
+			}
+			else
+				_putchar(z + '0');
+			if (y != n)
+			{
+				_putchar(',');
+				_putchar(' ');
+			}
 		}
+		_putchar('\n');
+		x++;
 	}
-	printf("\n");
 }
