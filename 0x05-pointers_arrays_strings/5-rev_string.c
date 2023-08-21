@@ -1,26 +1,17 @@
 #include "main.h"
+#include <stdio.h>
 
-/**rev_string - reverse string
-  *@s: string
-  *
+/**
+  *main - entry point
+  *Return: 0
   */
 
-void rev_string(char *s)
+int main(void)
 {
-	int i = 0, j;
-	char c, d;
+	char s[10] = "My School";
 
-	while (s[i] != '\0')
-	{
-		i++;
-	}
-	i -= 1;
-	for (j = 0; j < i; j++)
-	{
-		c = s[j];
-		d = s[i];
-		s[j] = d;
-		s[i] = c;
-		i--;
-	}
+	printf("%s\n", s);
+	rev_string(s);
+	printf("%s\n", s);
+	return (0);
 }
