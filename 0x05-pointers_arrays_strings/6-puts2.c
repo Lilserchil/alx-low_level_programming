@@ -1,27 +1,19 @@
 #include "main.h"
+
 /**
-  * puts2 - prints all even numbers
-  *@str: string input
-  */
+ * puts2 - prints character of a string
+ * @str: string arg to be printed
+ * Return: void
+ */
 
 void puts2(char *str)
 {
-	while (*str != '\0')
-	int count = 0;
 	int i;
 
-	while (str[count] != '\0')
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		count++;
-	}
-	for (i = 0; i < count; i += 2)
-	{
-		if (*str % 2 == 0)
-		{
-			_putchar(*str);
-		}
-		str++;
-		_putchar(str[i]);
+		if (i % 2 == 0)
+			_putchar(str[i]);
 	}
 	_putchar('\n');
 }
