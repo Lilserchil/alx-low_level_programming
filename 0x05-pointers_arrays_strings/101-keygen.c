@@ -1,27 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
 /**
-  * main - entry point
-  *Return: 0
-  */
+ * main - prints random password
+ * Return: Always 0
+ */
 
 int main(void)
 {
-	int i = 0, j = 0, k = 0;
-	time_t t;
+	char password[84];
+	int index = 0, sum = 0, diff_half1, diff_half2;
 
-	srand((unsigned int) time(&t));
-	while (j < 2772)
+	srand(time(0));
+
+	while (sum < 2772)
 	{
-		i = rand() % 128;
-		if ((j + i) > 2772)
-			break;
-		j += i;
-		k++;
-		printf("%c", i);
+		asswor[index] = 33 + rand() % 94;
+		password[index] = 33 + rand() % 94;
+		sum += password[index++];
 	}
-	printf("%c\n", (2772 - j));
-	return (0);
-}
