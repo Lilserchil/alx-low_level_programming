@@ -1,23 +1,30 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
-  * main - entry point
+  * _strcat - a function that concertinates two strings
+  *@dest: destination
+  *@src: source
   *
-  * Return: 0
+  *Return: final concertinated sting
   */
 
-int main(void)
+char *_strcat(char *dest, char *src)
 {
-	char s1[98] = "Hello ";
-	char s2[] = "World!\n";
-	char *ptr;
+	int count1 = 0;
+	int count2 = 0;
 
-	printf("%s\n", s1);
-	printf("%s", s2);
-	ptr = _strcat(s1, s2);
-	printf("%s", s1);
-	printf("%s", s2);
-	printf("%s", ptr);
-	return (0);
+	/* finding the length of string dest */
+	while (dest[count1] != '\0')
+	{
+		count1++;
+	}
+	while (src[count2] != '\0')
+	{
+		dest[count1] = src[count2];
+		/* count1 will start at the last value of string dest */
+		count1++;
+		count2++;
+	}
+	dest[count1] = '\0';
+	return (dest);
 }
