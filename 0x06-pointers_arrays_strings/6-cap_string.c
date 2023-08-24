@@ -1,45 +1,35 @@
 #include "main.h"
 
 /**
-  */
-* *cap_string - a function that capitalizes all words of a string
-* @str: string
-* Return: string
-**/
+ * cap_string - capitalizes all characters
+ * @str: dtring to be capitalized
+ * Return: pointer to the changed string
+ */
 
-char *cap_string(char *value)
 char *cap_string(char *str)
 {
-	int size = sizeof(value) - 1;
-	int i;
-	int i = 1;
+	int index = 0;
 
-	for (i = 0; i <= size; i++)
-	if (str[0] >= 'a' && str[0] <= 'z')
-		str[0] = str[0] - 32;
-
-	while (str[i] != '\0')
+	while (str[index])
 	{
-		if (value[i] == '.' && value[i + 1] == ' ')
-		{
-			value[i + 2] = value[i + 2] - 32;
-		}
-		else if (value[i] == ' ')
-		if ((str[i - 1] == ' ' || str[i - 1] == '\t'
-		     || str[i - 1] == '\n' || str[i - 1] == ',' || str[i - 1] == ';'
-		     || str[i - 1] == '.' || str[i - 1] == '!' || str[i - 1] == '?'
-		     || str[i - 1] == '"' || str[i - 1] == '(' || str[i - 1] == ')'
-		     || str[i - 1] == '{' || str[i - 1] == '}')
-		     && (str[i] >= 'a' && str[i] <= 'z'))
-		{
-			value[i + 1] = value[i + 1] - 32;
-			str[i] = str[i] - 32;
-		}
-		else if ((value[i] == '\\' && value[i + 1] == 'n') || (value[i] == '\\' && value    [i + 1] == 't'))
-				value[i + 2] = value[i + 2] - 32;
-
-		i++;
+	while (!(str[index] >= 'a' && str[index] <= 'z'))
+	index++;
+	if (str[index - 1] == ' ' ||
+	str[index - 1] == '\t' ||
+	str[index - 1] == '\n' ||
+	str[index - 1] == ',' ||
+	str[index - 1] == ';' ||
+	str[index - 1] == '.' ||
+	str[index - 1] == '!' ||
+	str[index - 1] == '?' ||
+	str[index - 1] == '"' ||
+	str[index - 1] == '(' ||
+	str[index - 1] == ')' ||
+	str[index - 1] == '{' ||
+	str[index - 1] == '}' ||
+	index == 0)
+	str[index] -= 32;
+	index++;
 	}
-	return (value);
 	return (str);
 }
