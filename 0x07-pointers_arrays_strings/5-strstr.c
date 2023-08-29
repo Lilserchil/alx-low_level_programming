@@ -1,26 +1,29 @@
 #include "main.h"
-#include <stdio.h>
+
 /**
- * _strstr - entry point
- * @haystack: input
- * @needle: input
- * Return: always 0
- */
+  *_strstr - finds a substing
+  *@haystack: haystack
+  *@needle: needle
+  *Return: 0
+  */
+
 char *_strstr(char *haystack, char *needle)
 {
-	for (; *haystack != '\0'; haystack++)
-	{
-		char *one = haystack;
-		char *two = needle;
+	int i, j, k;
 
-		while (*one == *two && *two != '\0')
+	for (i = 0; haystack[i] != '\0'; i++)
+	{
+		for (k = i, j = 0; needle[j] != '\0'; j++, k++)
 		{
-			one++;
-			two++;
+			if (needle[j] != haystack[k] || haystack[k] == '\0')
+			{
+				break;
+			}
 		}
-		if (*two != '\0')
-		if (*two == '\0')
-			return (haystack);
+		if (needle[j] == '\0')
+		{
+			return (haystack + i);
+		}
 	}
-	return (NULL);
+	return (0);
 }
