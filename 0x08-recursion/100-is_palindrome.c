@@ -1,4 +1,5 @@
 #include "main.h"
+
 int _strlen_recursion(char *s);
 int _scan(char *c, char *d);
 /**
@@ -12,6 +13,7 @@ int is_palindrome(char *s)
 	int i = _strlen_recursion(s);
 	char *c = s;
 	char *d = s + (i - 1);
+
 	if (i == 0)
 		return (1);
 	return (_scan(c, d));
@@ -29,7 +31,7 @@ int _strlen_recursion(char *s)
 
 	if (*s == '\0')
 		return (0);
-	else
+
 	{
 		i = _strlen_recursion(s + 1);
 		i++;
