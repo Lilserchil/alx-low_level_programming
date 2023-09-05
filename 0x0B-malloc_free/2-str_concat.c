@@ -1,12 +1,10 @@
 #include "main.h"
-
 /**
  * str_concat - concats two strings
  * @s1: 1st string
  * @s2: 2nd string
  * Return: pointer to newly allocated space
  */
-
 char *str_concat(char *s1, char *s2)
 {
 	int s1len = 0;
