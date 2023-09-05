@@ -1,45 +1,30 @@
 #include "main.h"
-#include <stddef.h>
+
 /**
-  *_strdup - copy a character string
-  *@str: string input
-  *
-  *Return: character pointer
-  */
-int _strlen_recursion(char *str);
+ * _strdup - copies string to a newly allocated memory
+ * @str: string to copy to new memory
+ * Return: pointer to new memory
+ */
+
 char *_strdup(char *str)
 {
-	int i, j;
-	char *pStr;
+	int i;
+	char *copy;
+	int count = 0;
 
-	if (*str == '\0')
 	if (str == NULL)
-	{
 		return (NULL);
-	}
-	i = _strlen_recursion(str);
-	pStr = (char *)malloc((i + 1) * sizeof(char));
-	if (pStr == NULL)
-	{
+
+	for (i = 0; str[i] != '\0'; i++)
+		count++;
+	copy = malloc(sizeof(char) * count + 1);
+
+	if (copy == NULL)
 		return (NULL);
-	}
-	for (j = 0; j < i; j++)
-	{
-		pStr[j] = str[j];
-	}
-	return (pStr);
-}
-/**
-  *_strlen_recursion - return length of string
-  *@str: pointer sting
-  *
-  *Return: length of string
-  */
-int _strlen_recursion(char *str)
-{
-	if (*str == '\0')
-	{
-		return (0);
-	}
-	return (1 + _strlen_recursion(str + 1));
+
+	for (i = 0; str[i] != '\0'; i++)
+		copy[i] = str[i];
+
+	return (copy);
+
 }
