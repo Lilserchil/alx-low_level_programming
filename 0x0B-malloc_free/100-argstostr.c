@@ -1,27 +1,49 @@
 #include "main.h"
-#include <stdlib.h>
 
 /**
-  *
-  */
+ * argstostr - concats all arguments
+ * @ac: arg count
+ * @av: arg vector
+ * Return:  NULL if ac == 0 or av == NULL
+ */
 
 char *argstostr(int ac, char **av)
 {
-	char *ptr;
-	int i;
+	int ch = 0, i = 0, j = 0, k = 0;
+	char *s;
 
 	if (ac == 0 || av == NULL)
-	{
 		return (NULL);
-	}
-	ptr = (char *)malloc(sizeof(char) * ac);
-	if (ptr == NULL)
+
+	while (i < ac)
 	{
-		return (NULL);
+		while (av[i][j])
+		{
+			ch++;
+			j++;
+		}
+
+		j = 0;
+		i++;
 	}
-	for (i = 0; i < ac; i++)
+	s = malloc((sizeof(char) * ch) + ac + 1);
+
+	i = 0;
+	while (av[i])
 	{
-		ptr[i] = av[i];
+		while (av[i][j])
+		{
+			s[k] = av[i][j];
+			k++;
+			j++;
+		}
+		s[k] = '\n';
+
+		j = 0;
+		k++;
+		i++;
 	}
-	return (ptr);
+	k++;
+	s[k] = '\0';
+	return (s);
 }
