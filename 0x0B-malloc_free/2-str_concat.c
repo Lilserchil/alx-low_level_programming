@@ -1,32 +1,54 @@
 #include "main.h"
+#include <stddef.h>
 /**
- * str_concat - concats two strings
- * @s1: 1st string
- * @s2: 2nd string
- * Return: pointer to newly allocated space
- */
+  *str_concat - concatinate two strings
+  *@s1: first string
+  *@s2: second string
+  *
+  *Return: pointer to string
+  */
 char *str_concat(char *s1, char *s2)
 {
-	int s1len = 0;
-	int s2len = 0;
-	int i;
-	char *output;
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
-	for (i = 0; s1[i] != '\0'; i++)
-		s1len++;
-	for (i = 0; s2[i] != '\0'; i++)
-		s2len++;
-	output = malloc(sizeof(char) * (s1len + s2len) + 1);
-	if (output == NULL)
-		return (NULL);
-	for (i = 0; s1[i] != '\0'; i++)
-		output[i] = s1[i];
-	for (i = 0; s2[i] != '\0'; i++)
-		output[s1len + i] = s1[i];
-		output[s1len + i] = s2[i];
+	int length1, length2, i, j;
+	char *ptr;
 
-	return (output);
+	if (s1 == NULL)
+	{
+		s1 = "";
+	}
+	if (s2 == NULL)
+	{
+		s2 = "";
+	}
+	length1 = 0;
+	length2 = 0;
+	while (s1[length1] != '\0')
+@@ -24,15 +32,6 @@ char *str_concat(char *s1, char *s2)
+	{
+		length2++;
+	}
+
+	if (s1 == NULL)
+	{
+		s1 = "";
+	}
+	if (s2 == NULL)
+	{
+		s2 = "";
+	}
+	ptr = (char *)malloc(sizeof(char) * (length1 + length2 + 1));
+	if (ptr == NULL)
+	{
+		return (NULL);
+	}
+	for (i = 0; i < length1; i++)
+	{
+		ptr[i] = s1[i];
+	}
+	for (j = 0; j <= length2; j++)
+	{
+		ptr[length1] = s2[j];
+		length1++;
+	}
+	return (ptr);
 }
