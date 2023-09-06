@@ -1,17 +1,17 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
-  * main - entry point
-  *@argc: arguement count
-  *@argv: arguement array or vector
-  *
-  *Return: 0
-  */
+ * main - prints the number of argument count
+ * @argc: argument count
+ * @argv: argument vector
+ * Return: 0
+ */
 
 int main(int argc, char *argv[])
 {
-	(void)argv;/* since not using the argv parameter */
+	(void) argv;
 
-	printf("%d\n", (argc - 1));
+	printf("%d\n", argc - 1);
 	return (0);
 }
+
