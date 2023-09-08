@@ -1,4 +1,5 @@
 #include "main.h"
+
 /**
  * string_nconcat - concts strings
  * @s1: 1st string
@@ -6,12 +7,14 @@
  * @n: param
  * Return: concatenated string
  */
+
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	unsigned int s1len = 0;
 	unsigned int s2len = 0;
 	unsigned int i;
 	char *output;
+
 	if (s1 == NULL)
 		s1 = "";
 	if (s2 == NULL)
